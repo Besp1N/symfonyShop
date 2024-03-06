@@ -4,6 +4,90 @@
 
 {% block body %}
 
+    <div class="container rounded-container mt-2">
+        <p class="display-4 text-white">Welcome to T-Shirt</p>
+        <p class="display-4 text-white">Store</p>
+    </div>
+
+    <div class="container rounded-top-shirts mt-5">
+        <p class="mb-0 text-center text-white">Top Shirts</p>
+    </div>
+
+{#    <div class="container top-shirts-container">#}
+{#        {% set counter = 0 %}#}
+{#        <div class="row justify-content-center shirt-js hidden">#}
+{#            {% for shirt in shirts %}#}
+{#            {% if counter > 0 and counter % 3 == 0 %}#}
+{#        </div><div class="row justify-content-center shirt-js hidden">#}
+{#            {% endif %}#}
+{#            <div class="col card mb-4 mr-4 d-flex flex-column justify-content-between p-0">#}
+{#                <div class="shirt-image">#}
+{#                    <a href="{{ path('app_home_showone', {'tshirt': shirt.id}) }}">#}
+{#                        <img src="{{ asset(shirt.path) }}">#}
+{#                    </a>#}
+{#                </div>#}
+{#                <div class="shirt-description align-self-end">#}
+{#                    <p class="m-0 p-2 text-white">{{ shirt.brand }} - {{ shirt.price }}$</p>#}
+{#                </div>#}
+{#            </div>#}
+{#            {% set counter = counter + 1 %}#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+
+    <div class="container rounded-top-shirts mt-5">
+        <p class="mb-0 text-center text-white">Top Brands</p>
+    </div>
+
+    <div class="container top-shirts-container">
+        <div class="row justify-content-center">
+            <div class="col card mb-4 mr-4 d-flex flex-column justify-content-between p-0 text-white">
+{#                <img src="{{ asset('images/nike_logo.jpeg') }}">#}
+                <div class="shirt-description align-self-end">
+                    <p class="m-0 p-2">Nike</p>
+                </div>
+            </div>
+            <div class="col card mb-4 mr-4 d-flex flex-column justify-content-between p-0 text-white">
+{#                <img src="{{ asset('images/adidas_logo.png') }}">#}
+                <div class="shirt-description align-self-end">
+                    <p class="m-0 p-2">Adidas</p>
+                </div>
+            </div>
+            <div class="col card mb-4 mr-4 d-flex flex-column justify-content-between p-0 text-white">
+{#                <img src="{{ asset('images/vans_logo.jpg') }}">#}
+                <div class="shirt-description align-self-end">
+                    <p class="m-0 p-2">Vans</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col card mb-4 mr-4 d-flex flex-column justify-content-between p-0 text-white">
+{#                <img src="{{ asset('images/acne_sutdios_logo.webp') }}">#}
+                <div class="shirt-description align-self-end">
+                    <p class="m-0 p-2">Acne Studios</p>
+                </div>
+            </div>
+            <div class="col card mb-4 mr-4 d-flex flex-column justify-content-between p-0 text-white">
+{#                <img src="{{ asset('images/puma_logo.jpeg') }}">#}
+                <div class="shirt-description align-self-end">
+                    <p class="m-0 p-2">Puma</p>
+                </div>
+            </div>
+            <div class="col card mb-4 mr-4 d-flex flex-column justify-content-between p-0 text-white">
+{#                <img src="{{ asset('images/minecraft_logo.jpg') }}">#}
+                <div class="shirt-description align-self-end">
+                    <p class="m-0 p-2">Minecraft</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container rounded-container mt-2 mb-5">
+        <p class="display-4 text-white">Contact me!</p>
+        <p class="text-white contact-me">Github account: <a href="https://github.com/Besp1N"> Kacper Karabinowski</a></p>
+        <p class="text-white contact-me">Mail: kackar87@wp.pl</p>
+    </div>
+
 
 
 

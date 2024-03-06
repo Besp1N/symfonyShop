@@ -1,3 +1,288 @@
-body {
-    background-color: #fff;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Shizuru', system-ui;
+}
+
+nav a{
+    text-decoration: none !important;
+    text-align: center;
+    color: #000;
+}
+
+.container {
+    width: 100%;
+    padding: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, auto);
+    gap: 20px;
+    align-items: center;
+}
+
+.logo {
+    grid-column: 1;
+}
+
+.home {
+    grid-column: 5;
+}
+
+.about {
+    grid-column: 6;
+}
+
+/*.search {*/
+/*    grid-column: 7;*/
+/*}*/
+
+.search {
+    grid-column: 7;
+    display: flex;
+    align-items: center; /* Wyrównanie elementów w pionie */
+}
+
+.search input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background-color: #0056b3;
+}
+
+
+.cart {
+    grid-column: 9;
+}
+
+.logout-nav {
+    grid-column: 11;
+    grid-row: 1;
+}
+
+.register {
+    grid-column: 11;
+}
+
+.login {
+    grid-column: 12;
+}
+.your-account {
+    grid-column: 12;
+}
+
+.register, .login {
+    position: relative;
+}
+
+.register::after, .login::after {
+    content: "";
+    height: 3px;
+    width: 0;
+    background-color: #39DC98;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: width 0.3s;
+}
+
+.register:hover::after, .login:hover::after {
+    width: 100%;
+}
+
+.rounded-container {
+    min-height: 200px;
+    border-radius: 40px 40px 150px 40px;
+    background: linear-gradient(30deg, rgb(57, 220, 152), rgb(64, 154, 152), rgb(1, 8, 81));
+}
+
+.rounded-top-shirts {
+    border-radius: 40px;
+    background: linear-gradient(30deg, rgb(57, 220, 152), rgb(64, 154, 152), rgb(1, 8, 81));
+    width: 40rem;
+}
+
+.rounded-top-shirts p {
+    font-size: x-large;
+}
+
+.card {
+    max-width: 330px;
+    min-height: 400px;
+}
+
+.shirt-description {
+    width: 100%;
+    min-height: 30px;
+    text-align: center;
+    background-color: #454868;
+}
+
+.shirt-image img {
+    width: 100%;
+    height: 100%;
+}
+
+p.contact-me, p.contact-me a {
+    font-size: x-large;
+}
+
+p.contact-me a {
+    text-decoration: none;
+    color: #010851;
+    position: relative;
+}
+
+p.contact-me a::after {
+    content: "";
+    height: 3px;
+    width: 0;
+    background-color: #39DC98;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s;
+}
+
+p.contact-me a:hover::after {
+    width: 100%;
+}
+
+.one-shirt {
+    display: flex;
+    flex-direction: row;
+}
+
+.description {
+    font-size: x-large;
+    background-color: rgb(241, 241, 241);
+    max-height: 520px;
+    padding: 2rem;
+    width: 600px;
+}
+
+.login-form {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.shirt-js {
+    transition: all 0.7s linear;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateX(-100px);
+}
+
+.register-section {
+    display: flex;
+}
+
+.register-section p {
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+}
+
+.user-profile-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.total p {
+    font-size: 1.4rem;
+    color: #454868;
+}
+
+.user-cart ul {
+    list-style: none;
+}
+
+.user-info, .user-cart {
+    width: 350px;
+    padding: 1rem;
+}
+
+.glass{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 30px;
+}
+
+.cart-page {
+    display: flex;
+    justify-content: center;
+}
+
+.available {
+    color: rgb(0, 168, 77);
+}
+
+.not-available {
+    color: #FD809E;
+}
+
+.form-check-input {
+    transform: scale(1.5);
+    margin-left: 20px;
+    margin-top: 7px;
+}
+
+.login-error {
+    background-color: #ffcccc;
+    color: #cc0000;
+    padding: 10px;
+    border: 1px solid #cc0000;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-check label {
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+.form-check-input {
+    margin-right: 10px;
+}
+
+.checkout-p {
+    font-size: 1.7rem;
+}
+
+.products {
+    width: 40% !important;
+}
+
+.checkout-main {
+    flex-direction: column;
+    justify-content: space-evenly;
 }
