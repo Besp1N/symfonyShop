@@ -3,10 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User
+class User implements \Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -30,6 +31,9 @@ class User
 
     #[ORM\Column(length: 255)]
     private ?string $activationKey = null;
+
+    #[ORM\Column(type: Types::ARRAY)]
+    private array $roles = [];
 
     public function getId(): ?int
     {
@@ -104,6 +108,18 @@ class User
     public function setActivationKey(string $activationKey): static
     {
         $this->activationKey = $activationKey;
+
+        return $this;
+    }
+
+    public function getRoles(): array
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(array $roles): static
+    {
+        $this->roles = $roles;
 
         return $this;
     }
