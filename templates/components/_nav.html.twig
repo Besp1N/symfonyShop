@@ -5,7 +5,7 @@
         <a href="#" class="about">About</a>
 
         <form class="search" method="GET" action="#">
-            <input type="text" autocomplete="off" name="query" placeholder="Search for a movie">
+            <input type="text" autocomplete="off" name="query" placeholder="Search for a product">
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
 
@@ -15,7 +15,7 @@
             <a href="{{ path('app_logout') }}" class="logout-nav">Logout</a>
         {% else %}
             <a href="#" class="register">Register</a>
-            <a href="#" class="login">Login</a>
+            <a href="{{ path('app_login') }}" class="login">Login</a>
         {% endif %}
     </nav>
 </header>
