@@ -22,7 +22,6 @@ class CartController extends AbstractController
             $cart = $user->getCart();
         }
 
-
         return $this->render('cart/index.html.twig', [
             "productsInCart" => $cart->getProduct(),
             "total" => $cart->getTotal()
@@ -45,11 +44,8 @@ class CartController extends AbstractController
 
             $entityManager->persist($userCart);
             $entityManager->flush();
-
-            return $this->redirect('/cart');
         }
-
-        return $this->redirect('/');
+        return $this->redirectToRoute('app_cart');
     }
 
     #[Route('/cart/remove', name: 'app_cart_remove')]
@@ -67,6 +63,6 @@ class CartController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirect('/cart');
+        return $this->redirectToRoute('app_cart');
     }
 }
