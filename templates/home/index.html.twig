@@ -10,30 +10,30 @@
     </div>
 
     <div class="container rounded-top-shirts mt-5">
-        <p class="mb-0 text-center text-white">Top Shirts</p>
+        <p class="mb-0 text-center text-white">Top Products</p>
     </div>
 
-{#    <div class="container top-shirts-container">#}
-{#        {% set counter = 0 %}#}
-{#        <div class="row justify-content-center shirt-js hidden">#}
-{#            {% for shirt in shirts %}#}
-{#            {% if counter > 0 and counter % 3 == 0 %}#}
-{#        </div><div class="row justify-content-center shirt-js hidden">#}
-{#            {% endif %}#}
-{#            <div class="col card mb-4 mr-4 d-flex flex-column justify-content-between p-0">#}
-{#                <div class="shirt-image">#}
-{#                    <a href="{{ path('app_home_showone', {'tshirt': shirt.id}) }}">#}
-{#                        <img src="{{ asset(shirt.path) }}">#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="shirt-description align-self-end">#}
-{#                    <p class="m-0 p-2 text-white">{{ shirt.brand }} - {{ shirt.price }}$</p>#}
-{#                </div>#}
-{#            </div>#}
-{#            {% set counter = counter + 1 %}#}
-{#            {% endfor %}#}
-{#        </div>#}
-{#    </div>#}
+    <div class="container top-shirts-container">
+        {% set counter = 0 %}
+        <div class="row justify-content-center">
+            {% for product in products %}
+            {% if counter > 0 and counter % 3 == 0 %}
+        </div><div class="row justify-content-center">
+            {% endif %}
+            <div class="col card mb-4 mr-4 d-flex flex-column justify-content-between p-0">
+                <div class="shirt-image">
+                    <a href="{{ path('app_home_show_one', {'product': product.id}) }}">
+                        <img src="{{ asset(product.image) }}" alt="product">
+                    </a>
+                </div>
+                <div class="shirt-description align-self-end">
+                    <p class="m-0 p-2 text-white">{{ product.brand }} - {{ product.price }}$</p>
+                </div>
+            </div>
+            {% set counter = counter + 1 %}
+            {% endfor %}
+        </div>
+    </div>
 
     <div class="container rounded-top-shirts mt-5">
         <p class="mb-0 text-center text-white">Top Brands</p>

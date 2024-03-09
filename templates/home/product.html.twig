@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container one-shirt">
+        <div class="col card mb-4 mr-4 d-flex flex-column justify-content-between p-0">
+            <div class="shirt-image">
+                <img src="{{ asset(product.image) }}">
+            </div>
+            <div class="shirt-description align-self-end">
+                <p class="m-0 p-2 text-white">{{ product.brand }} - {{ product.price }}$</p>
+            </div>
+        </div>
+
+        <div class="description ml-4">
+            <div>
+                <p>Name: {{ product.name }}</p>
+                <p>Description: {{ product.description }}</p>
+                <p>Brand: {{ product.brand }}</p>
+                <p>Price: {{ product.price }}</p>
+                <p id="stock">Size S:</p>
+            </div>
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <form method="POST" action="#">
+                            <div class="text-center mb-3">Select Your Size</div>
+                            <div class="form-group">
+                                <select id="size" name="product_size" class="form-control">
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                    <option>XXL</option>
+                                </select>
+                                <input type="hidden" id="product_name" name="product_name" value="{{ product.name }}">
+                            </div>
+                            <div class="form-group">
+                                <button id="add-to-cart-btn" type="submit" name="action" value="add" class="btn btn-primary btn-block mb-2 text-white">Add to Cart</button>
+                                <button id="buy-now-btn" type="submit" name="action" value="buy" class="btn btn-success btn-block text-white">Buy Now</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
