@@ -1,7 +1,7 @@
 <header class="container">
     <nav class="grid">
         <div class="logo">Logo</div>
-        <a href="#" class="home">Home</a>
+        <a href="{{ path('app_home') }}" class="home">Home</a>
         <a href="#" class="about">About</a>
 
         <form class="search" method="GET" action="#">
@@ -10,7 +10,7 @@
         </form>
 
         {% if app.user %}
-            <a href="#" class="cart">Cart</a>
+            <a href="{{ path('app_cart') }}" class="cart">Cart</a>
             <a href="#" class="your-account">Your Account</a>
             <a href="{{ path('app_logout') }}" class="logout-nav">Logout</a>
         {% else %}

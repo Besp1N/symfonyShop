@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container rounded-top-shirts mt-4 mb-0">
+        <p class="mb-0 text-center text-white">Your Cart</p>
+    </div>
+
+    <div class="cart-page mt-4">
+        <div class="user-cart glass">
+            <h2>Your Cart</h2>
+            {% for product in productsInCart %}
+                <ul class="product-in-cart">
+                    <li class="mb-2 lead mb-4">{{ product.name }} - {{ product.size }} - {{ product.price }} USD
+                        <form action="#" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm ml-4">Remove</button>
+                        </form>
+                    </li>
+                </ul>
+            {% endfor %}
+            <div class="total">
+                <p class="mb-0">Total: {{ total }}</p>
+            </div>
+            <div>
+                <a class="btn btn-primary mt-1" href="#">Buy now!</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

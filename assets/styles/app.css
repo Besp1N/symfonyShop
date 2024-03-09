@@ -218,7 +218,7 @@ p.contact-me a:hover::after {
 }
 
 .user-info, .user-cart {
-    width: 350px;
+    width: 500px;
     padding: 1rem;
 }
 
@@ -285,4 +285,10 @@ p.contact-me a:hover::after {
 .checkout-main {
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+.product-in-cart {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
 }

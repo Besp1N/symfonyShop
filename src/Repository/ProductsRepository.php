@@ -41,6 +41,22 @@ class ProductsRepository extends ServiceEntityRepository
         return count($result) > 0;
     }
 
+    public function findOneBySizeAndName(string $size, string $name): ?Products
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.size = :size')
+            ->setParameter('size', $size)
+            ->andWhere('p.name = :name')
+            ->setParameter('name', $name)
+            ->andWhere('p.isDisplayOnly = :isDisplayOnly')
+            ->setParameter('isDisplayOnly', false)
+            ->leftJoin('p.cart', 'c')
+            ->andWhere('c.id IS NULL')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     //    /**
     //     * @return Products[] Returns an array of Products objects
     //     */
