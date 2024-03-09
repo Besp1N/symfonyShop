@@ -51,4 +51,22 @@ class CartController extends AbstractController
 
         return $this->redirect('/');
     }
+
+    #[Route('/cart/remove', name: 'app_cart_remove')]
+    public function remove(Request $request, ProductsRepository $productsRepository, EntityManagerInterface $entityManager): Response
+    {
+        $user = $this->getUser();
+        $productId = $request->request->get('product_id');
+        $product = $productsRepository->find($productId);
+
+        if ($user instanceof User) {
+            $userCart = $user->getCart();
+            $userCart->removeProduct($product);
+            $userCart->setTotal($userCart->getTotal() - $product->getPrice());
+            $entityManager->persist($userCart);
+            $entityManager->flush();
+        }
+
+        return $this->redirect('/cart');
+    }
 }

@@ -12,8 +12,9 @@
             {% for product in productsInCart %}
                 <ul class="product-in-cart">
                     <li class="mb-2 lead mb-4">{{ product.name }} - {{ product.size }} - {{ product.price }} USD
-                        <form action="#" method="post" style="display:inline;">
+                        <form action="{{ path('app_cart_remove') }}" method="POST" style="display:inline;">
                             <button type="submit" class="btn btn-danger btn-sm ml-4">Remove</button>
+                            <input type="hidden" name="product_id" value="{{ product.id }}">
                         </form>
                     </li>
                 </ul>
