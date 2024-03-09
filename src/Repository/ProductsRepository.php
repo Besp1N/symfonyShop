@@ -21,6 +21,26 @@ class ProductsRepository extends ServiceEntityRepository
         parent::__construct($registry, Products::class);
     }
 
+
+    public function isProductAvailable(string $name, string $size): bool
+    {
+        $queryBuilder = $this->createQueryBuilder('p');
+
+        $queryBuilder
+            ->andWhere('p.name = :name')
+            ->setParameter('name', $name)
+            ->andWhere('p.size = :size')
+            ->setParameter('size', $size)
+            ->andWhere('p.isDisplayOnly = :isDisplayOnly')
+            ->setParameter('isDisplayOnly', false)
+            ->leftJoin('p.cart', 'c')
+            ->andWhere($queryBuilder->expr()->isNull('c.id'));
+
+        $result = $queryBuilder->getQuery()->getResult();
+
+        return count($result) > 0;
+    }
+
     //    /**
     //     * @return Products[] Returns an array of Products objects
     //     */

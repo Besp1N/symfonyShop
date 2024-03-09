@@ -42,9 +42,19 @@ class AppFixtures extends Fixture
         $product1->setIsDisplayOnly(true);
         $product1->setType("shirt");
 
+        $product2 = new Products();
+        $product2->setName("Nike Shirt");
+        $product2->setSize("XL");
+        $product2->setPrice(120.00);
+        $product2->setBrand("Nike");
+        $product2->setDescription("Cool shirt");
+        $product2->setImage("images/products/nike_shirt1.jpg");
+        $product2->setIsDisplayOnly(false);
+        $product2->setType("shirt");
 
         $manager->persist($user1);
         $manager->persist($product1);
+        $manager->persist($product2);
         $manager->flush();
 
 
