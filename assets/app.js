@@ -1,4 +1,3 @@
 import './styles/app.css';
 import './scripts/home.js';
-
-console.log("huy");
+import  './scripts/available_product.js';
