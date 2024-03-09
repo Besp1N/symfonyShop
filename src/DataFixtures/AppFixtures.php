@@ -26,6 +26,17 @@ class AppFixtures extends Fixture
         $user->setIsActive(true);
         $user->setActivationKey("test");
 
+
+        $user2 = new User();
+        $user2->setName("Kacper");
+        $user2->setLastname("Karabinowski");
+        $user2->setEmail("test@wp.pl");
+        $user2->setPassword($this->userPasswordHasher->hashPassword($user2, "fuckoff"));
+        $user2->setRoles(['ROLE_USER']);
+        $user2->setIsActive(true);
+        $user2->setActivationKey("test");
+
+        $manager->persist($user2);
         $manager->persist($user);
         $manager->flush();
 
