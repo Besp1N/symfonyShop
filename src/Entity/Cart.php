@@ -19,7 +19,7 @@ class Cart
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 0)]
     private ?string $total = null;
 
-    #[ORM\OneToOne(inversedBy: 'cart', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'cart', cascade: ['persist', 'remove'])]
     private ?User $user = null;
 
     #[ORM\OneToMany(targetEntity: Products::class, mappedBy: 'cart')]
