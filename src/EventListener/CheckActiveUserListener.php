@@ -2,6 +2,7 @@
 
 namespace App\EventListener;
 
+use App\Entity\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Exception\DisabledException;
@@ -29,7 +30,7 @@ class CheckActiveUserListener implements EventSubscriberInterface
         $user = $event->getAuthenticationToken()->getUser();
         $request = $this->requestStack->getCurrentRequest();
 
-        if (!$user->isIsActive()) {
+        if (($user instanceof User) and !$user->isIsActive()) {
             $request->getSession()->getFlashBag()->add('warning', 'Twoje konto jest nieaktywne.');
             throw new DisabledException('Twoje konto jest nieaktywne.');
         }
