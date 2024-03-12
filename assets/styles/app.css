@@ -183,6 +183,7 @@ p.contact-me a:hover::after {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     flex-direction: column;
 }
 
@@ -330,20 +331,64 @@ p.contact-me a:hover::after {
 }
 
 @media screen and (max-width: 1000px) {
-    .grid {
+        .top-shirts-container .row {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .product-margin {
+            margin-bottom: 20px !important;
+        }
+
+        .shirt-description {
+            min-height: auto;
+            font-size: 35px; /* Dostosuj rozmiar czcionki według preferencji */
+        }
+
+        .container {
+            padding: 15px; /* Dostosuj padding kontenera według preferencji */
+        }
+
+        .rounded-container {
+            margin-top: 30px !important;
+            min-height: auto; /* Resetowanie minimalnej wysokości */
+            justify-content: flex-start; /* Resetowanie wyrównania na początku */
+        }
+
+        .rounded-container p {
+            font-size: 40px; /* Dostosuj rozmiar czcionki według preferencji */
+        }
+
+        .rounded-top-shirts {
+            width: 30rem;
+        }
+
+        .rounded-top-shirts p {
+            font-size: 30px; /* Dostosuj rozmiar czcionki według preferencji */
+        }
+
+        .card {
+            max-width: 100%; /* Zmiana szerokości karty na pełną szerokość */
+            min-height: auto; /* Resetowanie minimalnej wysokości */
+            margin-bottom: 20px; /* Dostosuj margines dolny według preferencji */
+        }
+
+    .navigation {
         display: none;
     }
 
     .container {
-        width: 100vw;
         padding: 30px;
     }
 
     .rounded-container {
+        margin-top: 50px !important;
         min-height: 700px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        border-radius: 200px 100px 200px 100px;
     }
 
     .rounded-container p {
@@ -354,8 +399,6 @@ p.contact-me a:hover::after {
         font-size: 50px;
     }
 
-
-
     .nav-toggle {
         display: block;
     }
@@ -364,5 +407,6 @@ p.contact-me a:hover::after {
         display: block;
     }
 }
+
 
 
