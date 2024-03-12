@@ -5,6 +5,7 @@
     font-family: 'Shizuru', system-ui;
 }
 
+
 nav a{
     text-decoration: none !important;
     text-align: center;
@@ -292,3 +293,55 @@ p.contact-me a:hover::after {
     justify-content: space-evenly;
     flex-direction: column;
 }
+
+
+/* Reszta Twojego CSS */
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.nav-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px auto;
+    transition: background-color 0.3s ease;
+}
+
+.nav-open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media screen and (max-width: 1000px) {
+    .grid {
+        display: none;
+    }
+
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-open .grid {
+        display: block;
+    }
+}
+
+
