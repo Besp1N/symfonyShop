@@ -4,10 +4,13 @@ const stock = document.getElementById('stock');
 const addToCartBtn = document.getElementById('add-to-cart-btn');
 const buyNowBtn = document.getElementById('buy-now-btn');
 
+// Wywołanie funkcji na początku
 isProductAvailable(size.value, name.value);
+
 size.addEventListener('change', function () {
     isProductAvailable(size.value, name.value);
 });
+
 async function isProductAvailable(size, name) {
     try {
         const response = await fetch(`/api/available?size=${size}&name=${name}`);
@@ -29,7 +32,3 @@ async function isProductAvailable(size, name) {
         console.error('Wystąpił błąd:', error);
     }
 }
-
-
-
-

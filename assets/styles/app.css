@@ -310,8 +310,8 @@ p.contact-me a:hover::after {
 
 .nav-toggle .bar {
     display: block;
-    width: 25px;
-    height: 3px;
+    width: 35px;
+    height: 5px;
     background-color: black;
     margin: 5px auto;
     transition: background-color 0.3s ease;
@@ -333,6 +333,27 @@ p.contact-me a:hover::after {
     .grid {
         display: none;
     }
+
+    .container {
+        width: 100vw;
+        padding: 30px;
+    }
+
+    .rounded-container {
+        min-height: 700px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .rounded-container p {
+        font-size: 80px;
+    }
+
+    .rounded-top-shirts p {
+        font-size: 50px;
+    }
+
 
 
     .nav-toggle {
