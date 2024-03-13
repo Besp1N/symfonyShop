@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Entity\User;
-use PharIo\Manifest\Email;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
@@ -23,10 +22,11 @@ readonly class EmailSenderService
 
         $email = (new TemplatedEmail())
             ->from('cinemasymfony@gmail.com')
-            ->to('cinemasymfony@gmail.com')
+            ->to($userMail)
             ->htmlTemplate('email/test.html.twig')
             ->context([
-               'activation_key' => $userActivationKey
+               'activation_key' => $userActivationKey,
+                'name' => $user->getName()
             ]);
 
         $this->mailer->send($email);
