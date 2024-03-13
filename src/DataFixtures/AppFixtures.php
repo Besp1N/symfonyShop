@@ -42,6 +42,36 @@ class AppFixtures extends Fixture
         $product1->setIsDisplayOnly(true);
         $product1->setType("shirt");
 
+        $product3 = new Products();
+        $product3->setName("Nike Shirt 2");
+        $product3->setSize("XL");
+        $product3->setPrice(120.00);
+        $product3->setBrand("Nike");
+        $product3->setDescription("Cool shirt");
+        $product3->setImage("images/products/nike_shirt1.jpg");
+        $product3->setIsDisplayOnly(true);
+        $product3->setType("shirt");
+
+        $product4 = new Products();
+        $product4->setName("Nike Shirt 2");
+        $product4->setSize("XL");
+        $product4->setPrice(120.00);
+        $product4->setBrand("Nike");
+        $product4->setDescription("Cool shirt");
+        $product4->setImage("images/products/nike_shirt1.jpg");
+        $product4->setIsDisplayOnly(true);
+        $product4->setType("shirt");
+
+        $product5 = new Products();
+        $product5->setName("Nike Shirt 2");
+        $product5->setSize("XL");
+        $product5->setPrice(120.00);
+        $product5->setBrand("Nike");
+        $product5->setDescription("Cool shirt");
+        $product5->setImage("images/products/nike_shirt1.jpg");
+        $product5->setIsDisplayOnly(true);
+        $product5->setType("shirt");
+
         $product2 = new Products();
         $product2->setName("Nike Shirt");
         $product2->setSize("XL");
@@ -55,6 +85,9 @@ class AppFixtures extends Fixture
         $manager->persist($user1);
         $manager->persist($product1);
         $manager->persist($product2);
+        $manager->persist($product3);
+        $manager->persist($product4);
+        $manager->persist($product5);
         $manager->flush();
 
 

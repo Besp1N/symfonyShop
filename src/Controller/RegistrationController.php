@@ -5,20 +5,27 @@ namespace App\Controller;
 use App\Entity\Cart;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Services\EmailSenderService;
 use Doctrine\ORM\EntityManagerInterface;
+use PharIo\Manifest\Email;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class RegistrationController extends AbstractController
 {
+    /**
+     * @throws TransportExceptionInterface
+     */
     #[Route('/register', name: 'app_register', priority: 5)]
     public function register(
         Request $request,
         UserPasswordHasherInterface $userPasswordHasher,
         EntityManagerInterface $entityManager,
+        EmailSenderService $emailSenderService
     ): Response
     {
         $user = new User();
@@ -37,6 +44,8 @@ class RegistrationController extends AbstractController
             $entityManager->persist($cart);
             $entityManager->persist($user);
             $entityManager->flush();
+
+            $emailSenderService->sendEmail($user);
 
             return $this->redirectToRoute('app_login');
         }

@@ -330,73 +330,97 @@ p.contact-me a:hover::after {
     transform: translateY(-8px) rotate(-45deg);
 }
 
+.my-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+}
+
+.my-grid-item {
+    background-color: #f0f0f0;
+    /*padding: 20px;*/
+    text-align: center;
+
+}
+
+.my-card {
+    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.my-product-description {
+    background-color: #454868;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem;
+}
+
+.my-product-description p {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 0;
+}
+
+
+
+
+/*
+    Media query
+ */
+
 @media screen and (max-width: 1000px) {
-        .top-shirts-container .row {
-            flex-direction: column;
-            align-items: stretch;
-        }
+    .container {
+        padding: 15px; /* Dostosuj padding kontenera według preferencji */
+    }
 
-        .product-margin {
-            margin-bottom: 20px !important;
-        }
+    .rounded-container {
+        margin-top: 30px !important;
+        min-height: auto; /* Resetowanie minimalnej wysokości */
+        justify-content: flex-start; /* Resetowanie wyrównania na początku */
+    }
 
-        .shirt-description {
-            min-height: auto;
-            font-size: 35px; /* Dostosuj rozmiar czcionki według preferencji */
-        }
+    .rounded-container p {
+        font-size: 40px; /* Dostosuj rozmiar czcionki według preferencji */
+    }
 
-        .container {
-            padding: 15px; /* Dostosuj padding kontenera według preferencji */
-        }
+    .rounded-top-shirts {
+        width: 30rem;
+    }
 
-        .rounded-container {
-            margin-top: 30px !important;
-            min-height: auto; /* Resetowanie minimalnej wysokości */
-            justify-content: flex-start; /* Resetowanie wyrównania na początku */
-        }
-
-        .rounded-container p {
-            font-size: 40px; /* Dostosuj rozmiar czcionki według preferencji */
-        }
-
-        .rounded-top-shirts {
-            width: 30rem;
-        }
-
-        .rounded-top-shirts p {
-            font-size: 30px; /* Dostosuj rozmiar czcionki według preferencji */
-        }
-
-        .card {
-            max-width: 100%; /* Zmiana szerokości karty na pełną szerokość */
-            min-height: auto; /* Resetowanie minimalnej wysokości */
-            margin-bottom: 20px; /* Dostosuj margines dolny według preferencji */
-        }
+    .rounded-top-shirts p {
+        font-size: 30px; /* Dostosuj rozmiar czcionki według preferencji */
+    }
 
     .navigation {
         display: none;
     }
 
     .container {
-        padding: 30px;
+        padding: 15px;
     }
 
     .rounded-container {
-        margin-top: 50px !important;
-        min-height: 700px;
+        margin-top: 30px !important;
+        min-height: auto;
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        border-radius: 200px 100px 200px 100px;
+        border-radius: 0;
     }
 
     .rounded-container p {
-        font-size: 80px;
+        font-size: 40px;
     }
 
     .rounded-top-shirts p {
-        font-size: 50px;
+        font-size: 30px;
     }
 
     .nav-toggle {
@@ -406,7 +430,25 @@ p.contact-me a:hover::after {
     .nav-open .grid {
         display: block;
     }
-}
 
+    .my-grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, auto);
+    }
+
+    .my-card {
+        min-height: 40rem;
+    }
+
+    .my-card a img {
+        width: 30rem;
+        height: 40rem;
+    }
+
+    .my-product-description p{
+        font-size: 2.4rem;
+    }
+
+}
 
 
