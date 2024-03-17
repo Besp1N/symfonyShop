@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Cart;
 use App\Entity\User;
 use App\Repository\ProductsRepository;
+use App\Services\CartService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,8 +18,8 @@ class CartController extends AbstractController
     public function index(): Response
     {
         $user = $this->getUser();
-
         $cart = [];
+
         if ($user instanceof User) {
             $cart = $user->getCart();
         }
@@ -29,38 +31,33 @@ class CartController extends AbstractController
     }
 
     #[Route('/cart/update/', name: 'app_cart_add')]
-    public function add(Request $request, ProductsRepository $productsRepository, EntityManagerInterface $entityManager): Response
+    public function add(
+        Request $request,
+        CartService $cartService
+    ): Response
     {
         $user = $this->getUser();
 
-        $productName = $request->request->get('product_name');
-        $productSize = $request->request->get('product_size');
-        $product = $productsRepository->findOneBySizeAndName($productSize, $productName);
-
-        if ($user instanceof User and $product) {
-            $userCart = $user->getCart();
-            $userCart->addProduct($product);
-            $userCart->setTotal($userCart->getTotal() + $product->getPrice());
-
-            $entityManager->persist($userCart);
-            $entityManager->flush();
+        if ($user instanceof User) {
+            $productName = $request->request->get('product_name');
+            $productSize = $request->request->get('product_size');
+            $cartService->addProductToCart($user, $productSize, $productName);
         }
+
         return $this->redirectToRoute('app_cart');
     }
 
     #[Route('/cart/remove', name: 'app_cart_remove')]
-    public function remove(Request $request, ProductsRepository $productsRepository, EntityManagerInterface $entityManager): Response
+    public function remove(
+        Request $request,
+        CartService $cartService
+    ): Response
     {
         $user = $this->getUser();
-        $productId = $request->request->get('product_id');
-        $product = $productsRepository->find($productId);
 
         if ($user instanceof User) {
-            $userCart = $user->getCart();
-            $userCart->removeProduct($product);
-            $userCart->setTotal($userCart->getTotal() - $product->getPrice());
-            $entityManager->persist($userCart);
-            $entityManager->flush();
+            $productId = $request->request->get('product_id');
+            $cartService->removeFromCart($user, $productId);
         }
 
         return $this->redirectToRoute('app_cart');
