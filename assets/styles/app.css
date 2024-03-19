@@ -367,6 +367,50 @@ p.contact-me a:hover::after {
     margin-bottom: 0;
 }
 
+.checkout-container {
+    width: 50%;
+}
+
+.checkout-container p {
+    font-size: 1.2rem;
+}
+
+.checkout-price {
+    font-weight: bold;
+}
+
+.checkout-total {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    text-align: right;
+}
+
+.method-option {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.method-option ul {
+    list-style-type: disc;
+}
+
+.method-option input {
+    margin-left: 1rem;
+}
+
+.method-option label {
+    margin-bottom: 0;
+}
+
+.checkout-method-container {
+    width: 50%;
+    margin-top: 4rem;
+    margin-left: auto;
+}
+
+
+
 
 
 

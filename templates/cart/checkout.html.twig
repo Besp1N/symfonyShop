@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="glass checkout-container">
+            <p>You are going to buy</p>
+            <div class="checkout-products">
+            {% for product in products %}
+                <ul>
+                    <li>{{ product.name }} - {{ product.size }} - <span class="checkout-price">{{ product.price }} $</span></li>
+                </ul>
+             {% endfor %}
+            </div>
+            <div class="checkout-total">
+                <p>Total - {{ total }}</p>
+            </div>
+        </div>
+
+        <div class="checkout-method-container glass">
+            <p>Select your checkout method</p>
+
+            <div class="checkout-method">
+                <ul>
+                    <li class="method-option">
+                        <label>Credit card</label>
+                        <input type="radio" name="checkout-method" value="credit-card">
+                    </li>
+
+                    <li class="method-option">
+                        <label>Credit card</label>
+                        <input type="radio" name="checkout-method" value="credit-card">
+                    </li>
+
+                    <li class="method-option">
+                        <label>Credit card</label>
+                        <input type="radio" name="checkout-method" value="credit-card">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

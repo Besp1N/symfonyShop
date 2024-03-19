@@ -24,6 +24,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
+                        {% if app.user %}
                         <form method="POST" action="{{ path('app_cart_add') }}">
                             <div class="text-center mb-3">Select Your Size</div>
                             <div class="form-group">
@@ -41,6 +42,13 @@
                                 <button id="buy-now-btn" type="submit" name="action" value="buy" class="btn btn-success btn-block text-white">Buy Now</button>
                             </div>
                         </form>
+
+                        {% else %}
+                            <div>
+                                <p><a href="{{ path('app_login') }}">Log in</a> to check size and buy product</p>
+
+                            </div>
+                        {% endif %}
 
                     </div>
                 </div>

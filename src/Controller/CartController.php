@@ -2,11 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Cart;
 use App\Entity\User;
 use App\Repository\ProductsRepository;
 use App\Services\CartService;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,8 +16,8 @@ class CartController extends AbstractController
     public function index(): Response
     {
         $user = $this->getUser();
-        $cart = [];
 
+        $cart = [];
         if ($user instanceof User) {
             $cart = $user->getCart();
         }
@@ -36,12 +34,14 @@ class CartController extends AbstractController
         CartService $cartService
     ): Response
     {
-        $user = $this->getUser();
+        $action = $request->request->get('action');
+        $productName = $request->request->get('product_name');
+        $productSize = $request->request->get('product_size');
 
-        if ($user instanceof User) {
-            $productName = $request->request->get('product_name');
-            $productSize = $request->request->get('product_size');
-            $cartService->addProductToCart($user, $productSize, $productName);
+        $cartService->addProductToCart($productSize, $productName);
+
+        if ($action == 'buy') {
+            return $this->redirectToRoute('app_cart_checkout');
         }
 
         return $this->redirectToRoute('app_cart');
@@ -53,13 +53,21 @@ class CartController extends AbstractController
         CartService $cartService
     ): Response
     {
-        $user = $this->getUser();
-
-        if ($user instanceof User) {
-            $productId = $request->request->get('product_id');
-            $cartService->removeFromCart($user, $productId);
-        }
+        $productId = $request->request->get('product_id');
+        $cartService->removeFromCart($productId);
 
         return $this->redirectToRoute('app_cart');
+    }
+
+    #[Route('/cart/checkout', name: 'app_cart_checkout')]
+    public function checkout(ProductsRepository $productsRepository): Response
+    {
+        $user = $this->getUser();
+        $userCart = $user->getCart();
+
+        return $this->render('cart/checkout.html.twig', [
+            'products' => $userCart->getProduct(),
+            'total' => $userCart->getTotal()
+        ]);
     }
 }
