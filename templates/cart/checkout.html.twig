@@ -2,6 +2,13 @@
 
 {% block body %}
 
+    <div class="container rounded-container mt-2 d-flex justify-content-center">
+        <div>
+           <p class="display-2 text-white">Checkout!</p>
+            <p class="display-4 text-white">Get your products</p>
+        </div>
+    </div>
+
     <div class="container">
         <div class="glass checkout-container">
             <p>You are going to buy</p>
@@ -24,7 +31,7 @@
                 <ul>
                     <li class="method-option">
                         <label>Credit card</label>
-                        <input type="radio" name="checkout-method" value="credit-card">
+                        <input type="radio" name="checkout-method" value="credit-card" checked>
                     </li>
 
                     <li class="method-option">
@@ -40,8 +47,14 @@
             </div>
         </div>
 
-        <div class="checkout-buy">
-
+        <div class="checkout-address glass">
+            <p>Checkout address</p>
+            <div class="checkout-select-address">Select your country</div>
+            <select>
+                <option class="checkout-country-option">Poland</option>
+                <option class="checkout-country-option">USA</option>
+                <option class="checkout-country-option">Germany</option>
+            </select>
         </div>
 
 

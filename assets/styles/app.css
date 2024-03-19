@@ -363,7 +363,7 @@ p.contact-me a:hover::after {
 
 .my-product-description p {
     color: #fff;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 0;
 }
 
@@ -372,6 +372,10 @@ p.contact-me a:hover::after {
 }
 
 .checkout-container p {
+    font-size: 1.5rem;
+}
+
+.checkout-products ul li {
     font-size: 1.2rem;
 }
 
@@ -400,18 +404,31 @@ p.contact-me a:hover::after {
 }
 
 .checkout-method-container p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .method-option label {
     margin-bottom: 0;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .checkout-method-container {
     width: 50%;
     margin-top: 4rem;
     margin-left: auto;
+}
+
+.checkout-address {
+    width: 50%;
+    margin-top: 4rem;
+}
+
+.checkout-address p {
+    font-size: 1.5rem;
+}
+
+.checkout-select-address {
+    font-size: 1.3rem;
 }
 
 
