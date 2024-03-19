@@ -396,11 +396,16 @@ p.contact-me a:hover::after {
 }
 
 .method-option input {
-    margin-left: 1rem;
+    margin-left: 1.5rem;
+}
+
+.checkout-method-container p {
+    font-size: 1.2rem;
 }
 
 .method-option label {
     margin-bottom: 0;
+    font-size: 1.2rem;
 }
 
 .checkout-method-container {
