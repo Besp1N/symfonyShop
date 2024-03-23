@@ -14,7 +14,8 @@ class HomeController extends AbstractController
     public function index(ProductsRepository $productsRepository): Response
     {
         return $this->render('home/index.html.twig', [
-            "products" => $productsRepository->findBy(["isDisplayOnly" => true])
+            "products" => $productsRepository->findBy(["isDisplayOnly" => true]),
+            "brands" => $productsRepository->findUniqueBrands()
         ]);
     }
 

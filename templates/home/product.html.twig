@@ -18,7 +18,9 @@
                 <p>Description: {{ product.description }}</p>
                 <p>Brand: {{ product.brand }}</p>
                 <p>Price: {{ product.price }}</p>
-                <p id="stock">Size S:</p>
+                {% if app.user %}
+                    <p id="stock">Size S:</p>
+                {% endif %}
             </div>
 
             <div class="container">

@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Products;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use phpDocumentor\Reflection\Types\CallableParameter;
 
 /**
  * @extends ServiceEntityRepository<Products>
@@ -58,15 +59,30 @@ class ProductsRepository extends ServiceEntityRepository
     }
 
 
-    public function findAllByName(string $name): array
+    public function findAllByName(string $name): ?  array
     {
-        return $this->createQueryBuilder('p')
+        $result = $this->createQueryBuilder('p')
             ->andWhere('p.name LIKE :name')
             ->setParameter('name', '%' . $name . '%')
             ->andWhere('p.isDisplayOnly = TRUE')
             ->getQuery()
             ->getResult();
+
+        if (empty($result)) {
+            return null;
+        }
+        return $result;
     }
+
+    public function findUniqueBrands(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->select('DISTINCT p.brand')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult();
+    }
+
 
     //    /**
     //     * @return Products[] Returns an array of Products objects

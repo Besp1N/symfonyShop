@@ -350,6 +350,9 @@ p.contact-me a:hover::after {
     flex-direction: column;
     justify-content: space-evenly;
 }
+.my-card img {
+    height: 18rem;
+}
 
 .my-product-description {
     background-color: #454868;

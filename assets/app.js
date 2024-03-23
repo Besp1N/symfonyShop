@@ -1,10 +1,21 @@
 const currentPath = window.location.pathname;
 const isProductPage = /^\/\d+$/.test(currentPath);
+const isCheckoutPage = currentPath === '/checkout';
 
 import './styles/app.css';
 import './scripts/home.js';
 import './scripts/nav.js';
-import './scripts/checkout.js';
+
+
+if (isCheckoutPage) {
+    import ('./scripts/checkout.js')
+        .then(() => {
+            console.log('Skrypt /scripts/checkout.js załadowany');
+        })
+        .catch(error => {
+            console.error('Błąd podczas ładowania skryptu /scripts/checkout.js:', error);
+        });
+}
 
 if (isProductPage) {
     import('./scripts/available_product.js')

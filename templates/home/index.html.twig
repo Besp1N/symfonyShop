@@ -38,16 +38,11 @@
     </div>
 
     <div class="my-grid-container container">
-        {% for product in products %}
+        {% for brand in brands %}
 
             <div class="my-grid-item">
                 <div class="my-card">
-                    <a href="#">
-                        <img src="{{ asset(product.image) }}">
-                    </a>
-                    <div class="my-product-description">
-                        <p>{{ product.brand }} - {{ product.price }}</p>
-                    </div>
+                    <p style="font-size: 2rem">{{ brand['brand'] }}</p>
                 </div>
             </div>
 

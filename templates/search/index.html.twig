@@ -5,9 +5,13 @@
 
 
 {% if products is null %}
-    <p class="container">No results for {{ query }}</p>
+    <div class="container rounded-top-shirts mt-5 d-flex justify-content-center">
+        <p class="mb-0 text-center text-white">No results for {{ query }}</p>
+    </div>
 {% else %}
-    <p class="container">Results for {{ query }}!</p>
+        <div class="container rounded-top-shirts mt-5 d-flex justify-content-center">
+            <p class="mb-0 text-center text-white">Results for {{ query }}</p>
+        </div>
 
     <div class="my-grid-container container">
         {% for product in products %}
@@ -27,8 +31,5 @@
     </div>
 
 {% endif %}
-
-
-
 
 {% endblock %}
