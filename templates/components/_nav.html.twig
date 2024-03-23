@@ -4,7 +4,7 @@
         <a href="{{ path('app_home') }}" class="home">Home</a>
         <a href="#" class="about">About</a>
 
-        <form class="search" method="GET" action="#">
+        <form class="search" method="GET" action="{{ path('app_search') }}">
             <input type="text" autocomplete="off" name="query" placeholder="Search for a product">
             <button type="submit" class="btn btn-primary">Search</button>
         </form>

@@ -57,6 +57,17 @@ class ProductsRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
+
+    public function findAllByName(string $name): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.name LIKE :name')
+            ->setParameter('name', '%' . $name . '%')
+            ->andWhere('p.isDisplayOnly = TRUE')
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Products[] Returns an array of Products objects
     //     */

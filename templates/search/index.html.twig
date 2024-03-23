@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+{% if products is null %}
+    <p class="container">No results for {{ query }}</p>
+{% else %}
+    <p class="container">Results for {{ query }}!</p>
+
+    <div class="my-grid-container container">
+        {% for product in products %}
+
+            <div class="my-grid-item">
+                <div class="my-card">
+                    <a href="{{ path('app_home_show_one', {'product': product.id}) }}">
+                        <img src="{{ asset(product.image) }}">
+                    </a>
+                    <div class="my-product-description">
+                        <p>{{ product.brand }} - {{ product.price }}</p>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endif %}
+
+
+
+
+{% endblock %}

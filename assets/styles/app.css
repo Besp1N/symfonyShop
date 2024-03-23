@@ -431,6 +431,84 @@ p.contact-me a:hover::after {
     font-size: 1.3rem;
 }
 
+.checkout-address-country-select {
+    display: flex;
+}
+
+.checkout-address-country-select select {
+    margin-left: 1.2rem;
+}
+
+.checkout-city {
+    display: flex;
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+.checkout-city input {
+    margin-left: auto;
+    width: 13rem;
+    height: 2rem;
+
+}
+
+.test {
+    width: 13rem;
+    height: 2rem;
+}
+
+.checkout-ml-auto {
+    margin-left: auto;
+}
+
+.checkout-select-city {
+    font-size: 1.3rem;
+}
+
+.checkout-city-address {
+    display: flex;
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+.checkout-city-address input {
+    margin-left: auto;
+    width: 13rem;
+    height: 2rem;
+}
+
+.checkout-select-city-address {
+    font-size: 1.3rem;
+}
+
+.order-summary-container {
+    margin-top: 4rem;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-summary-container p:first-child {
+    font-size: 1.7rem;
+}
+
+.order-summary-container p {
+    font-size: 1.3rem;
+}
+
+.checkout-button {
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    width: 8rem;
+    height: 3rem;
+    color: #fff;
+    background-color: #007bff;
+
+}
+
+
+
 
 
 

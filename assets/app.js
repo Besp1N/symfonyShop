@@ -4,6 +4,7 @@ const isProductPage = /^\/\d+$/.test(currentPath);
 import './styles/app.css';
 import './scripts/home.js';
 import './scripts/nav.js';
+import './scripts/checkout.js';
 
 if (isProductPage) {
     import('./scripts/available_product.js')
