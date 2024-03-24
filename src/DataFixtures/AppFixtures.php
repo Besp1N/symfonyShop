@@ -22,7 +22,7 @@ class AppFixtures extends Fixture
         $user1 = new User();
         $user1->setName("Kacper");
         $user1->setLastname("Karabinowski");
-        $user1->setEmail("kackar87@wp.pl");
+        $user1->setEmail("kacper-karabinowski@symfony.com");
         $user1->setPassword($this->userPasswordHasher->hashPassword($user1, "12345678"));
         $user1->setRoles(['ROLE_USER']);
         $user1->setIsActive(true);
@@ -31,6 +31,19 @@ class AppFixtures extends Fixture
         $user1Cart = new Cart();
         $user1Cart->setTotal(0.00);
         $user1->setCart($user1Cart);
+
+        $user1Admin = new User();
+        $user1Admin->setName("Kacper");
+        $user1Admin->setLastname("Karabinowski");
+        $user1Admin->setEmail("kacper-karabinowski-admin@symfony.com");
+        $user1Admin->setPassword($this->userPasswordHasher->hashPassword($user1, "12345678"));
+        $user1Admin->setRoles(['ROLE_ADMIN']);
+        $user1Admin->setIsActive(true);
+        $user1Admin->setActivationKey("test");
+
+        $user1AdminCart = new Cart();
+        $user1AdminCart->setTotal(0.00);
+        $user1Admin->setCart($user1AdminCart);
 
         $productForDisplay1 = new Products();
         $productForDisplay1->setIsDisplayOnly(false);
@@ -100,6 +113,7 @@ class AppFixtures extends Fixture
 
 
         $manager->persist($user1);
+        $manager->persist($user1Admin);
         $manager->persist($productForDisplay1);
         $manager->persist($productForBuyDisplay1);
         $manager->persist($productForDisplay2);
