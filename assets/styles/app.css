@@ -206,8 +206,7 @@ p.contact-me a:hover::after {
 }
 
 .user-profile-container {
-    display: flex;
-    justify-content: space-evenly;
+    width: 70%;
 }
 
 .total p {
@@ -507,7 +506,15 @@ p.contact-me a:hover::after {
     height: 3rem;
     color: #fff;
     background-color: #007bff;
+}
 
+.user-profile-info {
+    font-size: 1.3rem;
+}
+
+.user-profile-container a {
+    font-size: 1.1rem;
+    float: right;
 }
 
 
