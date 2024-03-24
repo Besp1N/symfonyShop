@@ -23,4 +23,14 @@ class SearchController extends AbstractController
         ]);
     }
 
+    #[Route('/search/brand/{brand}', name: 'app_search_brand')]
+    public function searchBrands(string $brand, ProductsRepository $productsRepository): Response
+    {
+        $products = $productsRepository->findProductsByBrand($brand);
+
+        return $this->render('search/index.html.twig', [
+           'products' => $products,
+           'query' => $brand
+        ]);
+    }
 }

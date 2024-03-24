@@ -83,6 +83,21 @@ class ProductsRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findProductsByBrand(string $brand): ?array
+    {
+        $result = $this->createQueryBuilder('p')
+            ->andWhere('p.brand = :brand')
+            ->setParameter('brand', $brand)
+            ->andWhere('p.isDisplayOnly = TRUE')
+            ->getQuery()
+            ->getResult();
+
+        if (empty($result)) {
+            return null;
+        }
+        return $result;
+    }
+
 
     //    /**
     //     * @return Products[] Returns an array of Products objects
