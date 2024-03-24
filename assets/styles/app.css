@@ -513,7 +513,7 @@ p.contact-me a:hover::after {
 }
 
 .user-profile-container a {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     float: right;
 }
 
@@ -521,6 +521,29 @@ p.contact-me a:hover::after {
     float: left;
     font-size: 1.3rem;
 }
+
+.form-input {
+    margin-left: 1rem;
+}
+
+.hidden-order {
+    display: none;
+}
+
+.checkout-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.checkout-button-container button {
+    width: 15rem;
+    height: 3rem;
+    border-radius: 20px;
+}
+
+
 
 
 

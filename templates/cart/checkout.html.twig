@@ -78,16 +78,23 @@
             </div>
         </div>
 
-        <div class="glass order-summary-container">
-            <p>Order Summary</p>
-            <p>Total: </p>
-            <p>Payment method: </p>
-            <p>Country: </p>
-            <p>City: </p>
-            <p>Phone number: </p>
-
-            <button class="checkout-button">Buy!</button>
+        <div id="finalize-button-container" class="show-button container checkout-button-container">
+            <button id="finalize-button" class="btn btn-primary">Finalize!</button>
         </div>
+
+        <div id="finalize-card" class="hidden-order">
+            <div class="glass order-summary-container">
+                <p>Order Summary</p>
+                <p>Total: <span id="total-span"></span></p>
+                <p>Payment method: <span id="payment-method-span"></span></p>
+                <p>Country: <span id="country-span"></span></p>
+                <p>City: <span id="city-span"></span></p>
+                <p>Phone number: <span id="phone-number-span"></span></p>
+
+                <button class="checkout-button">Buy!</button>
+            </div>
+        </div>
+
 
 
     </div>

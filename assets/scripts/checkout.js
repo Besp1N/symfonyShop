@@ -1,13 +1,46 @@
 const checkoutTotal = document.getElementById('checkout-total');
-
-
-// Pobierz kontener dla opcji płatności
 const methodContainer = document.querySelector('.checkout-method ul');
+let paymentMethod = "Credit Card";
+const country = document.querySelector('.test');
+const city = document.querySelector('input[placeholder="City"]');
+const phoneNumber = document.querySelector('input[placeholder="Phone number"]');
+const finalizeButton = document.getElementById('finalize-button');
 
-// Dodaj nasłuchiwanie zmian dla kontenera opcji płatności
+const finalizeCard = document.getElementById('finalize-card');
+const finalizeButtonContainer = document.getElementById('finalize-button-container');
+
+const totalSpan = document.getElementById('total-span');
+const paymentMethodSpan = document.getElementById('payment-method-span');
+const countrySpan = document.getElementById('country-span');
+const citySpan = document.getElementById('city-span');
+const phoneNumberSpan = document.getElementById('phone-number-span');
+
 methodContainer.addEventListener('change', function(event) {
-    // Sprawdź, czy zdarzenie zostało spowodowane przez radio input
     if (event.target.type === 'radio' && event.target.checked) {
-        console.log('Użytkownik wybrał metodę płatności:', event.target.value);
+        paymentMethod = event.target.value;
     }
 });
+
+finalizeButton.addEventListener('click', function () {
+    finalizeCard.classList.remove('hidden-order');
+    setTimeout(function() {
+        finalizeCard.classList.add('show-order');
+
+        totalSpan.innerText = checkoutTotal.innerText;
+        paymentMethodSpan.innerText = paymentMethod;
+
+        countrySpan.innerText = country.value;
+        citySpan.innerText = city.value;
+        phoneNumberSpan.innerText = phoneNumber.value;
+
+
+
+
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }, 100);
+});
+
+
