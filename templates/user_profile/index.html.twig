@@ -13,6 +13,9 @@
         <p class="user-profile-info">Name: {{ user.name }}</p>
         <p class="user-profile-info">Surname: {{ user.lastname }}</p>
         <p class="user-profile-info">Email: {{ user.email }}</p>
+        <div class="user-profile-cart-link">
+            <a href="{{ path('app_cart') }}">Your Cart</a>
+        </div>
 
         <a href="#">Reset Password</a>
 

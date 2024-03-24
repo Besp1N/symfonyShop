@@ -517,6 +517,11 @@ p.contact-me a:hover::after {
     float: right;
 }
 
+.user-profile-cart-link a{
+    float: left;
+    font-size: 1.3rem;
+}
+
 
 
 
