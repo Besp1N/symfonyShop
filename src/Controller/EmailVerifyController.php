@@ -3,77 +3,26 @@
 namespace App\Controller;
 
 use App\Repository\UserRepository;
+use App\Services\EmailActivationService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class EmailVerifyController extends AbstractController
 {
+    /*
+     * This function is to verify user by token in link
+     */
     #[Route('/email/{token}', name: 'app_email_verify')]
     public function index(
         string $token,
-        UserRepository $userRepository,
-        EntityManagerInterface $entityManager
+        EmailActivationService $emailActivationService
     ): Response
     {
-        $user = $userRepository->findOneBy(['activationKey' => $token]);
+        $emailActivationService->activeUser($token);
 
-        if (!$user) {
-            return new Response('Not Found');
-        }
-
-        $user->setIsActive(true);
-        $entityManager->persist($user);
-        $entityManager->flush();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        $this->addFlash('success', 'You have verifed your email!');
-
+        $this->addFlash('success', 'You have verified your email!');
         return $this->redirectToRoute('app_login');
 
 

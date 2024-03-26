@@ -12,6 +12,10 @@ class LoginController extends AbstractController
     #[Route('/login', name: 'app_login', priority: 2)]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
+        /*
+         * If authenticated user wants to request for
+         * login page, he will be redirected to home route
+         */
         if($this->getUser()) {
             return $this->redirect('/');
         }
