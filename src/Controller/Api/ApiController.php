@@ -11,6 +11,11 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ApiController extends AbstractController
 {
+    /*
+     * Single API endpoint to check if product is available,
+     * this API was used in /{product} route to check if size is available and
+     * tell that user without refresh page.
+     */
     #[Route('/api/available', name: 'app_api')]
     public function index(Request $request, ProductsRepository $productsRepository): JsonResponse
     {

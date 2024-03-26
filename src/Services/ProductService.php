@@ -20,4 +20,14 @@ readonly class ProductService
     {
         return $this->productsRepository->findUniqueBrands();
     }
+
+    public function getProductsByQuery(string $query): array
+    {
+        return $this->productsRepository->findAllByName($query);
+    }
+
+    public function getProductsByBrand(string $brand): array
+    {
+        return $this->productsRepository->findProductsByBrand($brand);
+    }
 }
